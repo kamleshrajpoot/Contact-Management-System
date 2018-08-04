@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>User Information</h1>
+<div class="row">
+
+
+<div class="col-sm-10">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for informations in information%}
+    <tr>
+      <th scope="row">{{informations.id}}</th>
+      <td>{{informations.name}}</td>
+      <td>{{informations.email}}</td>
+      <td>{{informations.contact}}</td>
+      <td><a href="{% url 'update' informations.id %}">Update Information</a></td>
+      <td><a href="{% url 'home' informations.id %}">Delete Information</a></td>
+
+    </tr>
+    {% endfor %}
+      
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+<div class="col-sm-6">
+<form method="post"  enctype="multipart/form-data" >
+	<div class="frm-header">Store User Information</div>
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="name">User Name</label>
+    <input type="text" class="form-control" id="user_name" name="user_name" placeholder="please enter user-name" value="{{user.name}}" required>
+    <div class="invalid-feedback"></div>
+  </div>
+   <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name = "email" placeholder="Enter your Email Id" value="{{user.email}}" required>
+              <div class="invalid-feedback"></div>
+            </div>
+   <div class="form-group">
+              <label for="contact number">contact number</label>
+              <input type="number" class="form-control" id="contact_number" name = "contact_number" value="{{user.contact}}" placeholder="please enter your contact number" required><span class="glyphicon glyphicon-plus"></span>
+              <div class="invalid-feedback"></div>
+            </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+
+</div>
+</div>
+
+
+{% endblock %}
